@@ -11,7 +11,7 @@
   "urls": {
     "site": "https://juhuntenburg.github.io/gsoc2017",
     "hubpress": "https://juhuntenburg.github.io/gsoc2017",
-    "theme": "//juhuntenburg.github.io/gsoc2017/themes/uno-zen",
+    "theme": "//juhuntenburg.github.io/gsoc2017/themes/casper",
     "images": "https://juhuntenburg.github.io/gsoc2017/images"
   },
   "initialisationConfigComponent": {
@@ -28,7 +28,7 @@
     "title": "Integrating CBS Tools in the Nipy community",
     "description": "My development blog for the Google Summer of Code 2017",
     "logo": "",
-    "cover": "/images/blog_cover.png",
+    "cover": "http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png",
     "delay": "",
     "postsPerPage": "",
     "googleAnalytics": "",
