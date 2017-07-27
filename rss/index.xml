@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 27 Jul 2017 17:56:26 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Wisdom of the crowd]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 27 Jul 2017 17:58:49 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[To Docker or not to Docker]]></title><description><![CDATA[<div class="paragraph">
+<p>Reaching out to the neuroimaging community regarding means of software distribution got me many helpful replies and I learned quite a bit about Docker and related tools along the way. My main take-aways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Docker as a scientific tool in the neuroimaging community is of growing importance, as exemplified by <a href="http://bids-apps.neuroimaging.io/">BIDS Apps</a> or <a href="http://natacha-beck.github.io/cbrain_docker/#/">CBRAIN</a>. However, it still in an early stage so that widespread adoption will take time and installation procedures might need to be tweaked due to changes to the Docker project itself.</p>
+</li>
+<li>
+<p>Default Docker images such as AlpineLinux do not add a lot of overhead (they are much smaller than virtual machines) and should not result in a significant performance penalties unless one is dealing with super efficient numerical code.</p>
+</li>
+<li>
+<p>Using Docker in combination with <a href="http://singularity.lbl.gov/">Singularity</a> helps to run containers without root access and without Docker being actually installed, e.g. on HPCs</p>
+</li>
+<li>
+<p>When distributing through Docker it is even more important to have good regression tests across platforms and software versions. There are two projects trying to make this easier: <a href="https://github.com/kaczmarj/neurodocker">neurodocker</a> and <a href="https://github.com/ReproNim/niceman">niceman</a></p>
+</li>
+<li>
+<p>One interesting approach is, in addition to the Docker image, to publish a <a href="https://github.com/poldracklab/fmriprep/blob/master/wrapper/fmriprep_docker.py">standalone script</a> that generates Docker commands for users through <a href="https://pypi.python.org/pypi/fmriprep-docker">PyPI</a>, so it can be install with pip.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>One of the most helpful comments regarding our project I found to be this (<a href="https://neurostars.org/t/using-docker-to-distribute-highres-neuroimaging-software/442/2?u=juhuntenburg">on neurostars.org</a>):</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>"If you are looking to distribute a library that is intended to be integrated with other software wrapping it in Docker will make it hard if not impossible. If you are looking to distribute a command line tool with complex set of dependencies Docker is a good fit."</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>From the replies and talking to my mentors I got the sense that it will be the best choice for us to focus on more traditional ways of download and installation for now. Especially, because integrating our tools with other software is a main objective of this project. But we will also explore if it makes sense to additionally provide a Docker Image later on.</p>
+</div>
+<div class="paragraph">
+<p><em>Thanks for all the helpful comments and suggestions!</em></p>
+</div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/06/03/To-Docker-or-not-to-Docker.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/06/03/To-Docker-or-not-to-Docker.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Sat, 03 Jun 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Wisdom of the crowd]]></title><description><![CDATA[<div class="paragraph">
 <p>This week, GSoC started with the "community bonding" phase. I already feel pretty bonded with my software community (in fact I constitute 1/3 of it), so I use the time to reach out to the larger neuroimaging community regarding one of the first issues I want to address:</p>
 </div>
 <div class="paragraph">
