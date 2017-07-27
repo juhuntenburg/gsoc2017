@@ -6,12 +6,12 @@
     "cname": ""
   },
   "theme": {
-    "name": "ichi"
+    "name": "roon"
   },
   "urls": {
     "site": "https://juhuntenburg.github.io/gsoc2017",
     "hubpress": "https://juhuntenburg.github.io/gsoc2017",
-    "theme": "//juhuntenburg.github.io/gsoc2017/themes/ghostium",
+    "theme": "//juhuntenburg.github.io/gsoc2017/themes/ichi",
     "images": "https://juhuntenburg.github.io/gsoc2017/images"
   },
   "initialisationConfigComponent": {
