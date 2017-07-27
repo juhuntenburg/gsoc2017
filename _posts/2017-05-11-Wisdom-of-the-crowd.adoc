@@ -1,9 +1,8 @@
 = Wisdom of the crowd
 :linkattrs:
-:stem:
 :published_at: 2017-05-11
 
-This week, GSoC started with the "community bonding" phase. I already feel pretty bonded with my software community (in fact I constitute stem:[1/3] of it), so I use the time to reach out to the larger neuroimaging community regarding one of the first issues I want to address:
+This week, GSoC started with the "community bonding" phase. I already feel pretty bonded with my software community (in fact I constitute 1/3 of it), so I use the time to reach out to the larger neuroimaging community regarding one of the first issues I want to address:
 
 *What is the best way to distribute the Python version of CBS Tools?*
 
