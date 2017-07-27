@@ -6,12 +6,12 @@
     "cname": ""
   },
   "theme": {
-    "name": "uno"
+    "name": "uno-zen"
   },
   "urls": {
     "site": "https://juhuntenburg.github.io/gsoc2017",
     "hubpress": "https://juhuntenburg.github.io/gsoc2017",
-    "theme": "//juhuntenburg.github.io/gsoc2017/themes/saga",
+    "theme": "//juhuntenburg.github.io/gsoc2017/themes/uno",
     "images": "https://juhuntenburg.github.io/gsoc2017/images"
   },
   "initialisationConfigComponent": {
