@@ -4,7 +4,7 @@
 
 This week, GSoC started with the "community bonding" phase. I already feel pretty bonded with my software community (in fact I constitute 1/3 of it), so I use the time to reach out to the larger neuroimaging community regarding one of the first issues I want to address:
 
-*What is the best way to distribute the Python version of CBS Tools?*
+_What is the best way to distribute the Python version of CBS Tools?_
 
 I have previously discussed this question with my mentors and other colleagues, and one suggestion that came up is to deploy the tools via https://www.docker.com/[Docker]. In order to find out what neuroimaging folks think about docker I have started discussion threads on https://neurostars.org/t/using-docker-to-distribute-highres-neuroimaging-software/442[neurostars] and in the https://brainhack-slack-invite.herokuapp.com/[brainhack slack team].
 
