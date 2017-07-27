@@ -1,0 +1,5 @@
+= Github project management
+:linkattrs:
+:published_at: 2017-07-21
+
+Following a workshop at Brainhack Vancouver by the amazing https://twitter.com/kirstie_j[@kirstie_j], I started organizing my GSoC work using https://help.github.com/articles/tracking-the-progress-of-your-work-with-project-boards/[github project boards]. I probably use it a bit differently than intended -- mostly to keep track of my own tasks and asking questions to my mentors -- but find it extremely useful. We still have more detailed or organizational discussions on slack, but the project board is great to keep an overview without yet another tool (such as Trello & Co.)

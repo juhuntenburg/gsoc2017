@@ -1,0 +1,21 @@
+= To Docker or not to Docker
+:linkattrs:
+:published_at: 2017-06-03
+
+Reaching out to the neuroimaging community regarding means of software distribution got me many helpful replies and I learned quite a bit about Docker and related tools along the way. My main take-aways:
+
+* Docker as a scientific tool in the neuroimaging community is of growing importance, as exemplified by http://bids-apps.neuroimaging.io/[BIDS Apps] or http://natacha-beck.github.io/cbrain_docker/#/[CBRAIN]. However, it still in an early stage so that widespread adoption will take time and installation procedures might need to be tweaked due to changes to the Docker project itself.
+* Default Docker images such as AlpineLinux do not add a lot of overhead (they are much smaller than virtual machines) and should not result in a significant performance penalties unless one is dealing with super efficient numerical code.
+* Using Docker in combination with http://singularity.lbl.gov/[Singularity] helps to run containers without root access and without Docker being actually installed, e.g. on HPCs
+* When distributing through Docker it is even more important to have good regression tests across platforms and software versions. There are two projects trying to make this easier: https://github.com/kaczmarj/neurodocker[neurodocker] and https://github.com/ReproNim/niceman[niceman]
+* One interesting approach is, in addition to the Docker image, to publish a https://github.com/poldracklab/fmriprep/blob/master/wrapper/fmriprep_docker.py[standalone script] that generates Docker commands for users through https://pypi.python.org/pypi/fmriprep-docker[PyPI], so it can be install with pip.
+
+One of the most helpful comments regarding our project I found to be this (https://neurostars.org/t/using-docker-to-distribute-highres-neuroimaging-software/442/2?u=juhuntenburg[on neurostars.org]):
+
+****
+"If you are looking to distribute a library that is intended to be integrated with other software wrapping it in Docker will make it hard if not impossible. If you are looking to distribute a command line tool with complex set of dependencies Docker is a good fit."
+****
+
+From the replies and talking to my mentors I got the sense that it will be the best choice for us to focus on more traditional ways of download and installation for now. Especially, because integrating our tools with other software is a main objective of this project. But we will also explore if it makes sense to additionally provide a Docker Image later on.
+
+_Thanks for all the helpful comments and suggestions!_

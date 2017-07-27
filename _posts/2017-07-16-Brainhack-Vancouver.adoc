@@ -1,0 +1,16 @@
+= Brainhack Vancouver
+:linkattrs:
+:published_at: 2017-07-16
+
+From June 22-24 I was at the https://ohbm.github.io/hackathon2017/[OHBM Hackathon 2017] in Vancouver and https://docs.google.com/presentation/d/1OG7BWQRG93nNkFRYnfPNnj7AoosHUQwAdbQgAAq78i8/edit?usp=sharing[pitched] a project to implement the distribution for cbstools-python. I mostly hoped that some of the folks there had some advice, but did not really expect anyone to get overly excited about joining this pretty specific project. Turns out I still underestimate the power of http://www.brainhack.org/about.html[brainhack] -- right after the pitch https://github.com/kofalt[kofalt] came up to me and said he would love to join.
+
+Within two & 1/2 intense and fun days we managed to pool his expertise on software packaging and distribution, my recently acquired knowledge about PyPI and what we want for cbstools-python, and some helpful insights from other brainhackers into a single, but powerful https://github.com/kofalt/cbstools-public/blob/master/build.sh[script]. It performs the following essential steps:
+
+1. Download the MIPAV and JIST dependencies (should become redundant soon)
+2. Compile the Java code
+3. Wrap the Java classes using JCC
+4. Build the right folder structure and finally a wheel
+
+This automates all steps necessary for continuous integration and distribution via PyPI. It will need to be adapted once the high-level Python interfaces have been added and we have decided on the final code organization. Also a few small issues regarding continuous integration are still to be solved. But it is still a _massive step forward_ and much more than I ever expected to get done in that short time.
+
+As usual, I left brainhack tired but thrilled: about this awesome, inspiring community, and about having learned more in a few days than in a regular month or more back at university. If you are into neuroscience and coding, you should definitely check out the next brainhack in your region, or just organize one yourself.

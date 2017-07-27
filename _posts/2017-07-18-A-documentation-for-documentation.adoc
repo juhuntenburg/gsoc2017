@@ -1,0 +1,5 @@
+= A documentation for documentation
+:linkattrs:
+:published_at: 2017-07-18
+
+These days I am writing the Python interfaces to the JCC-wrapped Java code, that will eventually be exposed to the user. This also means writing comprehensive docstrings. Up until now I mostly freestyled docstrings, roughly trying to imitate what I had seen (and liked) in other packages, or other functions of the package I worked on. But searching for something docstring-related I stumbled upon the https://www.python.org/dev/peps/pep-0257/[PEP257 docstring conventions]. Maybe not so surprising that they exist. More surprising, there are specific https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard[NumPy/SciPy docstring conventions] (and http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html[examples]). It makes sense for us to follow the Scientific Python community convenstions, and so far I find the style clean, easy to follow and flexible enough for package specifics. Plus the warm and fuzzy feeling of following standards (#GermanAfterAll). Hooray!

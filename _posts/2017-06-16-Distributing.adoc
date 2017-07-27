@@ -1,0 +1,22 @@
+= Distributing
+:linkattrs:
+:published_at: 2017-06-16
+
+Recently I tried to learn about https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/[distributing Python packages through PyPI]. While that seems more or less straightforward for pure Python projects, the story gets more complicated for our case, where extensions in another language need to be compiled in a platform-dependent manner. I ended up with some insights, but also a lot of remaining confusion:
+
+.Generally there are two options:
+. compiling the extensions during installation
+. distributing pre-compiled binaries
+
+For 1. I found very little information on how to actually implement that. One option seems to https://docs.python.org/2/extending/building.html[build the extensions using distutils] in the setup.py script, although I am not sure if that requires the user to install from source, instead of installing using pip. One https://stackoverflow.com/questions/31380578/how-to-avoid-building-c-library-with-my-python-package[post] mentions that they used `build_ext` with pip to build a C extension during installation, but I could just not find any information on how exactly that works.
+
+I found much more information on option 2. The preferred way to package binary extensions through are https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/#wheels[wheels].
+>A wheel is a built package that can be installed without needing to go through the build process. Installing wheels is substantially faster for the end user than installing from a source distribution.
+
+In our case we would need to create a Platform Wheel, which is a platform dependent wheel that contains compiled extensions. PyPI currently supports wheels for Windows and OS X but only a compatible https://www.python.org/dev/peps/pep-0513/[subset of linux distributions]. Wheels appear to be the preferred and more standardized way of packaging versus the older egg format (see this https://packaging.python.org/discussions/wheel-vs-egg/[discussion]) and are used e.g. to manage https://pypi.python.org/pypi/numpy[Numpy] distribution.
+
+.Conda
+
+Another option is to use conda to package our project. This is where I am still confused. Building a https://conda.io/docs/build_tutorials/pkgs.html[conda package from an existing PyPI project] seems straightforward. Those can apparently be build for one platfrom, converted for others and then uploaded to anaconda.org. But I am not sure if that is only true for Python packages, or for binary extensions too, and how it works in the latter case (do the extensions already have to be on PyPI?). There is also a tutorial how to build a https://conda.io/docs/build_tutorials/postgis.html[conda package from scratch for any language], for which no PyPI project is required. But it is still a bit obscure to me how exactly that works, and what are the advantages over using PyPI with wheels. I found some thoughts on the latter question https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/[here under Myth#6]
+
+Hopefully I can update with a better understanding soon.
