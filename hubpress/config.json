@@ -5,6 +5,22 @@
     "branch": "gh-pages"
   },
   "theme": {
-    "name": "Casper"
+    "name": "casper"
+  },
+  "urls": {
+    "site": "https://juhuntenburg.github.io/gsoc2017",
+    "hubpress": "https://juhuntenburg.github.io/gsoc2017",
+    "theme": "//juhuntenburg.github.io/gsoc2017/themes/casper",
+    "images": "https://juhuntenburg.github.io/gsoc2017/images"
+  },
+  "initialisationConfigComponent": {
+    "name": "initialise-configuration",
+    "computed": {},
+    "methods": {},
+    "staticRenderFns": [
+      null,
+      null,
+      null
+    ]
   }
 }
