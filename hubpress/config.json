@@ -2,7 +2,8 @@
   "meta": {
     "username": "juhuntenburg",
     "repositoryName": "gsoc2017",
-    "branch": "gh-pages"
+    "branch": "gh-pages",
+    "cname": ""
   },
   "theme": {
     "name": "casper"
@@ -22,5 +23,27 @@
       null,
       null
     ]
+  },
+  "site": {
+    "title": "Integrating CBS Tools in the Nipy community",
+    "description": "My development blog for the Google Summer of Code 2017",
+    "logo": "",
+    "cover": "images/blog_cover.png",
+    "delay": "",
+    "postsPerPage": "",
+    "googleAnalytics": "",
+    "disqus": ""
+  },
+  "socialnetwork": {
+    "email": "",
+    "github": "",
+    "twitter": "",
+    "facebook": "",
+    "googleplus": "",
+    "instagram": "",
+    "pinterest": "",
+    "flickr": "",
+    "linkedin": "",
+    "stackoverflow": ""
   }
 }
