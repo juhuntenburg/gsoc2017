@@ -6,12 +6,12 @@
     "cname": ""
   },
   "theme": {
-    "name": "ghostium"
+    "name": "ichi"
   },
   "urls": {
     "site": "https://juhuntenburg.github.io/gsoc2017",
     "hubpress": "https://juhuntenburg.github.io/gsoc2017",
-    "theme": "//juhuntenburg.github.io/gsoc2017/themes/casper",
+    "theme": "//juhuntenburg.github.io/gsoc2017/themes/ghostium",
     "images": "https://juhuntenburg.github.io/gsoc2017/images"
   },
   "initialisationConfigComponent": {
