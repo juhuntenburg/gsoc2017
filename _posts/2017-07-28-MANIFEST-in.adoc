@@ -1,0 +1,9 @@
+= MANIFEST.in(g)
+:linkattrs:
+:published_at: 2017-07-28
+
+When setting up the new nighres repo I also worked on the LINK[build script] from LINK[Brainhack Vancouver]. It now pulls the raw Java classes from the original cbstools repo, compiles and wraps them using JCC and finally builds the PyPI-ready wheel. The wheel installs nighres, the cbstools wrappers which are called internally (but can also be accessed by advanced users), as well as atlas data that some of the algorithms need.
+
+When dealing with those atlas file I learned that including data files recursively using the setup function is a pain. But thanks to LINK[this post] I switched to specifying the data directories in a MANIFEST.in file, which is automatically read when setting `include_package_data=True` in the setup function. Simple and works like a charm.
+
+So far everything is only tested on my linux setup, so I have to look into other systems and continuous integration. But yet another step closer to nice and clean distribution.
