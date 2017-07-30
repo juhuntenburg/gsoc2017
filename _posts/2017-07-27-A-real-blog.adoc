@@ -2,6 +2,6 @@
 :linkattrs:
 :published_at: 2017-07-27
 
-Today I moved my blog from pure github pages to LINK[hubpress] (which is built on github pages). Takes a few hours of figuring out the setup and switching from Markdown to LINK[AsciiDoc].* But from there writing and publishing new posts is simple, and it just looks a bit more like a real blog (maybe I even figure out the cover image eventually). It's cool how many different things I get to learn through GSoC, for which I probably wouldn't take time otherwise during my PhD.
+Today I moved my blog from pure github pages to LINK[hubpress] (which is built on github pages). Takes a few hours of figuring out the setup and switching from Markdown to http://asciidoctor.org/docs/asciidoc-writers-guide/[AsciiDoc].* But from there writing and publishing new posts is simple, and it just looks a bit more like a real blog (maybe I even figure out the cover image eventually). It's cool how many different things I get to learn through GSoC, for which I probably wouldn't take time otherwise during my PhD.
 
-_* I found LINK[atom]'s AsciiDoc preview and syntax highlighting extensions to help a lot with that_
+_* I found https://atom.io[atom]'s AsciiDoc preview and syntax highlighting extensions to help a lot with that_

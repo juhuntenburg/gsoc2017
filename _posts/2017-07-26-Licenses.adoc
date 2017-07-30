@@ -2,10 +2,10 @@
 :linkattrs:
 :published_at: 2017-07-26
 
-Trying to decide how to license our package I was reading around and found that LINK was helpful for a quick overview on the basics, and LINK for detailed info on all licenses.
+Trying to decide how to license our package I was reading around and found that https://choosealicense.com/ was helpful for a quick overview on the basics, and https://opensource.org/licenses for detailed info on all licenses.
 
-What eventually helped me most was reaching out to the community via the LINK[brainhack slack] once again.
+What eventually helped me most was reaching out to the community via the https://brainhack-slack-invite.herokuapp.com/[brainhack slack] once again.
 
-The final choice came down to LINK[MIT] _versus_ LINK[Apache 2.0]. While both are similarly permissive regarding use and re-use of the code, Apache 2.0 additionally addresses the question of patents. I didn't really understand what that means in practice, and if it was important for us, but found two posts that helped me get at least a rough idea (LINK[here] and LINK[here]).
+The final choice came down to https://choosealicense.com/licenses/mit/[MIT] _versus_ https://choosealicense.com/licenses/apache-2.0/[Apache 2.0]. While both are similarly permissive regarding use and re-use of the code, Apache 2.0 additionally addresses the question of patents. I didn't really understand what that means in practice, and if it was important for us, but found two posts that helped me get at least a rough idea (https://softwareengineering.stackexchange.com/questions/187958/apache-license-and-patents[here] and https://opensource.stackexchange.com/questions/1881/against-what-does-the-apache-2-0-patent-clause-protect[here]).
 
 We eventually decided for Apache 2.0, it seems there is no loss but potential gain in comparison to MIT. Also, while MIT came out of academia and might be more naive regarding corporate issues, Apache 2.0 (or similar) is used by big software projects such as Google's tensorflow and Mozilla.
