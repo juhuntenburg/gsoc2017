@@ -1,0 +1,11 @@
+= Nighres
+:linkattrs:
+:published_at: 2017-07-28
+
+This week was special, the official birth of *_Nighres -- Processing tools for high-resolution neuroimaging_*.
+
+Nighres is the name that we decided on for our package. __Ni__ for consistency with other neuroimaging tools in the http://nipy.org/[Nipy] (Neuroimaging in Python) community. And __nighres__ in analogy to __highres__ (as in high-resolution data), and because it's easy to remember and type, and not yet taken on github.
+
+Just born and baptized, nighres soon started making its first step into the software world. It got its own https://github.com/nighres[github organization], including a https://nighres.github.io/[website], and inherited the https://github.com/nighres/nighres[repo] I had been working on so far during GSoC. Conveniently, github makes it super easy to https://help.github.com/articles/transferring-a-repository-owned-by-your-personal-account/[transfer a repo] with all history and even issues and project boards.
+
+Excited to help _nighres_ grow into a real software package during the next weeks, so that it soon start to make friends in the Nipy community!
