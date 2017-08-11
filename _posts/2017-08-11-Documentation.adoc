@@ -1,0 +1,56 @@
+= Documentation
+:linkattrs:
+:published_at: 2017-08-11
+
+Through contributing to
+other projects I have learned how to write docstrings. But I have never set up the actual online documentation myself. For Nighres, I looked into two approaches: <<_github_wiki>> and <<_sphinx>>
+
+[TIP]
+====
+*Summary*
+
+     * Github wiki is easy to use but needs to be updated manually
+     * Sphinx is harder to learn but easier to maintain
+     * Current docs: http://nighres.readthedocs.io/en/latest/
+====
+
+== Github wiki
+
+One idea was to document the package with a  https://guides.github.com/features/wikis/[github wiki]. Github wikis are easy to set up and there are some really nice https://github.com/showcases/projects-with-great-wikis[examples].
+
+What I don't like about the wiki is that all documentation has to be written and edited by hand. That means, if someone changes a function's docstring or adds a new function, they also have to make the respective changes in the sepearte wiki repo (nighres.wiki).
+
+== Sphinx
+
+The other option I looked into is http://www.sphinx-doc.org/en/stable/[sphinx], which I have seen used for many other Python projects. The big advantage of sphinx is that functions (classes, modules, etc) can be documented automatically using the http://www.sphinx-doc.org/en/stable/ext/autodoc.html[autodoc extension]. That means changes in the main code are automatically integrated when rebuilding the documentation. Or maybe one line needs to be added for a new function.
+
+Now sphinx is *much* harder to get started on than github wiki. There is good documentation on the basics (e.g. http://matplotlib.org/sampledoc/index.html[this tutorial]), but it took me days to understand how to use the actually interesting features and make it look nice.
+
+What helped me most was to dig into the documentations of similar projects (in my case http://nilearn.github.io/[Nilearn] and http://nipype.readthedocs.io/en/latest/[Nipype]), imitate what they do and then start to make changes.
+
+==== Read The Docs
+
+For hosting the documentation I tried out https://docs.readthedocs.io/en/latest/index.html[read the docs]. If you write your documentation in sphinx and your code is on github, it is really easy (and free) to set up a searchable documentation website under the _.readthedocs.io_ domain. The best about it: the page automatically rebuilds, whenever you push changes to your repo. Or whenever you make a new stable release, depending on your settings.
+
+Read the docs also has their own custom sphinx theme, which I am using for now. It has many built-in features that make the documentation look nice without much styling. The theme needs to be installed separately:
+
+ pip install sphinx-rtd-theme
+
+And then in the sphinx `conf.py` add:
+
+ html_theme = sphinx_rtd_theme
+
+http://iwatermark.readthedocs.io/en/latest/demo.html[This demo] shows how different reStructuredText constructs come out in the read the docs theme. It is also possible to modify the theme, as I found out by peeking into the sphinx gallery documentation (see https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/_static/theme_override.css[here] and https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/conf.py#L138-L139[here]). I have also played around with a more Nipy-like documentation style, and generally not too many changes would be necessary to switch. But before someone has more time to fiddle with making a pretty custom website, the rtd theme seems like the best choice to me.
+
+
+==== Sphinx Gallery
+
+Finally, inspired by the Nilearn documentation, I also learned how to document examples using https://sphinx-gallery.readthedocs.io/en/latest/[sphinx gallery]. To understand how it is used in Nilearn, and learn from that, I had to build the Nilearn documentation locally to see all the folders and files.
+
+Since it took me a moment to understand the error messages when trying that, here is what you need to install in order to build documentation using sphinx gallery:
+
+ pip install sphinx-gallery
+ pip install matplotlib
+ pip install pillow
+
+Once correctly set up in the `config.py` file, sphinx gallery beautifully renders the example code and creates pretty click-able fields (=the gallery), which are easy to include in the documentation. Each function can be set to auto-reference the examples that it is used in.
