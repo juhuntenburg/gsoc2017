@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 11 Aug 2017 20:02:47 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Documentation]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 11 Aug 2017 22:15:38 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Documentation Part II]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Through contributing to
@@ -11,7 +11,7 @@ other projects I have learned how to write docstrings. But I have never set up t
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<div class="paragraph">
+<div class="paragraph lead">
 <p><strong>Summary</strong></p>
 </div>
 <div class="ulist">
@@ -56,8 +56,8 @@ other projects I have learned how to write docstrings. But I have never set up t
 <div class="paragraph">
 <p>What helped me most was to dig into the documentations of similar projects (in my case <a href="http://nilearn.github.io/">Nilearn</a> and <a href="http://nipype.readthedocs.io/en/latest/">Nipype</a>), imitate what they do and then start to make changes.</p>
 </div>
-<div class="sect2">
-<h3 id="_read_the_docs">Read The Docs</h3>
+<div class="sect3">
+<h4 id="_read_the_docs">Read The Docs</h4>
 <div class="paragraph">
 <p>For hosting the documentation I tried out <a href="https://docs.readthedocs.io/en/latest/index.html">read the docs</a>. If you write your documentation in sphinx and your code is on github, it is really easy (and free) to set up a searchable documentation website under the <em>.readthedocs.io</em> domain. The best about it: the page automatically rebuilds, whenever you push changes to your repo. Or whenever you make a new stable release, depending on your settings.</p>
 </div>
@@ -81,8 +81,8 @@ other projects I have learned how to write docstrings. But I have never set up t
 <p><a href="http://iwatermark.readthedocs.io/en/latest/demo.html">This demo</a> shows how different reStructuredText constructs come out in the read the docs theme. It is also possible to modify the theme, as I found out by peeking into the sphinx gallery documentation (see <a href="https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/_static/theme_override.css">here</a> and <a href="https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/conf.py#L138-L139">here</a>). I have also played around with a more Nipy-like documentation style, and generally not too many changes would be necessary to switch. But before someone has more time to fiddle with making a pretty custom website, the rtd theme seems like the best choice to me.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_sphinx_gallery">Sphinx Gallery</h3>
+<div class="sect3">
+<h4 id="_sphinx_gallery">Sphinx Gallery</h4>
 <div class="paragraph">
 <p>Finally, inspired by the Nilearn documentation, I also learned how to document examples using <a href="https://sphinx-gallery.readthedocs.io/en/latest/">sphinx gallery</a>. To understand how it is used in Nilearn, and learn from that, I had to build the Nilearn documentation locally to see all the folders and files.</p>
 </div>
