@@ -28,7 +28,7 @@ Now sphinx is *much* harder to get started on than github wiki. There is good do
 
 What helped me most was to dig into the documentations of similar projects (in my case http://nilearn.github.io/[Nilearn] and http://nipype.readthedocs.io/en/latest/[Nipype]), imitate what they do and then start to make changes.
 
-==== Read The Docs
+=== Read The Docs
 
 For hosting the documentation I tried out https://docs.readthedocs.io/en/latest/index.html[read the docs]. If you write your documentation in sphinx and your code is on github, it is really easy (and free) to set up a searchable documentation website under the _.readthedocs.io_ domain. The best about it: the page automatically rebuilds, whenever you push changes to your repo. Or whenever you make a new stable release, depending on your settings.
 
@@ -43,7 +43,7 @@ And then in the sphinx `conf.py` add:
 http://iwatermark.readthedocs.io/en/latest/demo.html[This demo] shows how different reStructuredText constructs come out in the read the docs theme. It is also possible to modify the theme, as I found out by peeking into the sphinx gallery documentation (see https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/_static/theme_override.css[here] and https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/conf.py#L138-L139[here]). I have also played around with a more Nipy-like documentation style, and generally not too many changes would be necessary to switch. But before someone has more time to fiddle with making a pretty custom website, the rtd theme seems like the best choice to me.
 
 
-==== Sphinx Gallery
+=== Sphinx Gallery
 
 Finally, inspired by the Nilearn documentation, I also learned how to document examples using https://sphinx-gallery.readthedocs.io/en/latest/[sphinx gallery]. To understand how it is used in Nilearn, and learn from that, I had to build the Nilearn documentation locally to see all the folders and files.
 
