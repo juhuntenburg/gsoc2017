@@ -1,4 +1,107 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Mon, 31 Jul 2017 07:56:20 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Nighres]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 11 Aug 2017 20:02:47 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Documentation]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Through contributing to
+other projects I have learned how to write docstrings. But I have never set up the actual online documentation myself. For Nighres, I looked into two approaches: <a href="#_github_wiki">Github wiki</a> and <a href="#_sphinx">Sphinx</a></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Summary</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Github wiki is easy to use but needs to be updated manually</p>
+</li>
+<li>
+<p>Sphinx is harder to learn but easier to maintain</p>
+</li>
+<li>
+<p>Current docs: <a href="http://nighres.readthedocs.io/en/latest/" class="bare">http://nighres.readthedocs.io/en/latest/</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_github_wiki">Github wiki</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One idea was to document the package with a  <a href="https://guides.github.com/features/wikis/">github wiki</a>. Github wikis are easy to set up and there are some really nice <a href="https://github.com/showcases/projects-with-great-wikis">examples</a>.</p>
+</div>
+<div class="paragraph">
+<p>What I don&#8217;t like about the wiki is that all documentation has to be written and edited by hand. That means, if someone changes a function&#8217;s docstring or adds a new function, they also have to make the respective changes in the sepearte wiki repo (nighres.wiki).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sphinx">Sphinx</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The other option I looked into is <a href="http://www.sphinx-doc.org/en/stable/">sphinx</a>, which I have seen used for many other Python projects. The big advantage of sphinx is that functions (classes, modules, etc) can be documented automatically using the <a href="http://www.sphinx-doc.org/en/stable/ext/autodoc.html">autodoc extension</a>. That means changes in the main code are automatically integrated when rebuilding the documentation. Or maybe one line needs to be added for a new function.</p>
+</div>
+<div class="paragraph">
+<p>Now sphinx is <strong>much</strong> harder to get started on than github wiki. There is good documentation on the basics (e.g. <a href="http://matplotlib.org/sampledoc/index.html">this tutorial</a>), but it took me days to understand how to use the actually interesting features and make it look nice.</p>
+</div>
+<div class="paragraph">
+<p>What helped me most was to dig into the documentations of similar projects (in my case <a href="http://nilearn.github.io/">Nilearn</a> and <a href="http://nipype.readthedocs.io/en/latest/">Nipype</a>), imitate what they do and then start to make changes.</p>
+</div>
+<div class="sect2">
+<h3 id="_read_the_docs">Read The Docs</h3>
+<div class="paragraph">
+<p>For hosting the documentation I tried out <a href="https://docs.readthedocs.io/en/latest/index.html">read the docs</a>. If you write your documentation in sphinx and your code is on github, it is really easy (and free) to set up a searchable documentation website under the <em>.readthedocs.io</em> domain. The best about it: the page automatically rebuilds, whenever you push changes to your repo. Or whenever you make a new stable release, depending on your settings.</p>
+</div>
+<div class="paragraph">
+<p>Read the docs also has their own custom sphinx theme, which I am using for now. It has many built-in features that make the documentation look nice without much styling. The theme needs to be installed separately:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pip install sphinx-rtd-theme</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And then in the sphinx <code>conf.py</code> add:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>html_theme = sphinx_rtd_theme</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="http://iwatermark.readthedocs.io/en/latest/demo.html">This demo</a> shows how different reStructuredText constructs come out in the read the docs theme. It is also possible to modify the theme, as I found out by peeking into the sphinx gallery documentation (see <a href="https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/_static/theme_override.css">here</a> and <a href="https://github.com/sphinx-gallery/sphinx-gallery/blob/master/doc/conf.py#L138-L139">here</a>). I have also played around with a more Nipy-like documentation style, and generally not too many changes would be necessary to switch. But before someone has more time to fiddle with making a pretty custom website, the rtd theme seems like the best choice to me.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sphinx_gallery">Sphinx Gallery</h3>
+<div class="paragraph">
+<p>Finally, inspired by the Nilearn documentation, I also learned how to document examples using <a href="https://sphinx-gallery.readthedocs.io/en/latest/">sphinx gallery</a>. To understand how it is used in Nilearn, and learn from that, I had to build the Nilearn documentation locally to see all the folders and files.</p>
+</div>
+<div class="paragraph">
+<p>Since it took me a moment to understand the error messages when trying that, here is what you need to install in order to build documentation using sphinx gallery:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pip install sphinx-gallery
+pip install matplotlib
+pip install pillow</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once correctly set up in the <code>config.py</code> file, sphinx gallery beautifully renders the example code and creates pretty click-able fields (=the gallery), which are easy to include in the documentation. Each function can be set to auto-reference the examples that it is used in.</p>
+</div>
+</div>
+</div>
+</div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/08/11/Documentation.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/08/11/Documentation.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Fri, 11 Aug 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Nighres]]></title><description><![CDATA[<div class="paragraph">
 <p>This week was special, the official birth of <strong><em>Nighres&#8201;&#8212;&#8201;Processing tools for high-resolution neuroimaging</em></strong>.</p>
 </div>
 <div class="paragraph">
@@ -18,7 +121,7 @@
 <div class="paragraph">
 <p>So far everything is only tested on my linux setup, so I have to look into other systems and continuous integration. But yet another step closer to nice and clean distribution.</p>
 </div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/07/28/MANIFEST-in.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/07/28/MANIFEST-in.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Fri, 28 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Like a real blog]]></title><description><![CDATA[<div class="paragraph">
-<p>Today I moved my blog from pure github pages to LINK[hubpress] (which is built on github pages). Takes a few hours of figuring out the setup and switching from Markdown to <a href="http://asciidoctor.org/docs/asciidoc-writers-guide/">AsciiDoc</a>.* But from there writing and publishing new posts is simple, and it just looks a bit more like a real blog (maybe I even figure out the cover image eventually). It&#8217;s cool how many different things I get to learn through GSoC, for which I probably wouldn&#8217;t take time otherwise during my PhD.</p>
+<p>Today I moved my blog from pure github pages to <a href="https://github.com/HubPress/hubpress.io">hubpress</a> (which is built on github pages). Takes a few hours of figuring out the setup and switching from Markdown to <a href="http://asciidoctor.org/docs/asciidoc-writers-guide/">AsciiDoc</a>.* But from there writing and publishing new posts is simple, and it just looks a bit more like a real blog (maybe I even figure out the cover image eventually). It&#8217;s cool how many different things I get to learn through GSoC, for which I probably wouldn&#8217;t take time otherwise during my PhD.</p>
 </div>
 <div class="paragraph">
 <p><em>* I found <a href="https://atom.io">atom</a>'s AsciiDoc preview and syntax highlighting extensions to help a lot with that</em></p>
