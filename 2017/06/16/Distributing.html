@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Distributing</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://juhuntenburg.github.io/gsoc2017/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//juhuntenburg.github.io/gsoc2017/themes/casper/assets/css/screen.css?v=1503492880544" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Integrating CBS Tools in the Nipy community" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Distributing" />
+    <meta property="og:description" content="Recently I tried to learn about distributing Python packages through PyPI. While that seems more or less straightforward for pure Python projects, the story gets more complicated for our case, where extensions in another language need to be compiled in a platform-dependent manner. I ended up with some insights, but" />
+    <meta property="og:url" content="https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html" />
+    <meta property="article:published_time" content="2017-06-16T00:00:00.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Distributing" />
+    <meta name="twitter:description" content="Recently I tried to learn about distributing Python packages through PyPI. While that seems more or less straightforward for pure Python projects, the story gets more complicated for our case, where extensions in another language need to be compiled in a platform-dependent manner. I ended up with some insights, but" />
+    <meta name="twitter:url" content="https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Integrating CBS Tools in the Nipy community",
+    "author": {
+        "@type": "Person",
+        "name": "Julia Huntenburg",
+        "image": "https://avatars0.githubusercontent.com/u/6514016?v=4",
+        "url": "https://juhuntenburg.github.io/gsoc2017/author/juhuntenburg/"
+    },
+    "headline": "Distributing",
+    "url": "https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html",
+    "datePublished": "2017-06-16T00:00:00.000Z",
+    "description": "Recently I tried to learn about distributing Python packages through PyPI. While that seems more or less straightforward for pure Python projects, the story gets more complicated for our case, where extensions in another language need to be compiled in a platform-dependent manner. I ended up with some insights, but"
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="Integrating CBS Tools in the Nipy community" href="https://juhuntenburg.github.io/gsoc2017/rss/" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+</head>
+<body class="post-template nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Distributing</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2017-06-16">16 June 2017</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="paragraph">
+<p>Recently I tried to learn about <a href="https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/">distributing Python packages through PyPI</a>. While that seems more or less straightforward for pure Python projects, the story gets more complicated for our case, where extensions in another language need to be compiled in a platform-dependent manner. I ended up with some insights, but also a lot of remaining confusion:</p>
+</div>
+<div class="olist arabic">
+<div class="title">Generally there are two options:</div>
+<ol class="arabic">
+<li>
+<p>compiling the extensions during installation</p>
+</li>
+<li>
+<p>distributing pre-compiled binaries</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For 1. I found very little information on how to actually implement that. One option seems to <a href="https://docs.python.org/2/extending/building.html">build the extensions using distutils</a> in the setup.py script, although I am not sure if that requires the user to install from source, instead of installing using pip. One <a href="https://stackoverflow.com/questions/31380578/how-to-avoid-building-c-library-with-my-python-package">post</a> mentions that they used <code>build_ext</code> with pip to build a C extension during installation, but I could just not find any information on how exactly that works.</p>
+</div>
+<div class="paragraph">
+<p>I found much more information on option 2. The preferred way to package binary extensions through are <a href="https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/#wheels">wheels</a>.
+&gt;A wheel is a built package that can be installed without needing to go through the build process. Installing wheels is substantially faster for the end user than installing from a source distribution.</p>
+</div>
+<div class="paragraph">
+<p>In our case we would need to create a Platform Wheel, which is a platform dependent wheel that contains compiled extensions. PyPI currently supports wheels for Windows and OS X but only a compatible <a href="https://www.python.org/dev/peps/pep-0513/">subset of linux distributions</a>. Wheels appear to be the preferred and more standardized way of packaging versus the older egg format (see this <a href="https://packaging.python.org/discussions/wheel-vs-egg/">discussion</a>) and are used e.g. to manage <a href="https://pypi.python.org/pypi/numpy">Numpy</a> distribution.</p>
+</div>
+<div class="paragraph">
+<div class="title">Conda</div>
+<p>Another option is to use conda to package our project. This is where I am still confused. Building a <a href="https://conda.io/docs/build_tutorials/pkgs.html">conda package from an existing PyPI project</a> seems straightforward. Those can apparently be build for one platfrom, converted for others and then uploaded to anaconda.org. But I am not sure if that is only true for Python packages, or for binary extensions too, and how it works in the latter case (do the extensions already have to be on PyPI?). There is also a tutorial how to build a <a href="https://conda.io/docs/build_tutorials/postgis.html">conda package from scratch for any language</a>, for which no PyPI project is required. But it is still a bit obscure to me how exactly that works, and what are the advantages over using PyPI with wheels. I found some thoughts on the latter question <a href="https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/">here under Myth#6</a></p>
+</div>
+<div class="paragraph">
+<p>Hopefully I can update with a better understanding soon.</p>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="https://juhuntenburg.github.io/gsoc2017/author/juhuntenburg/" style="background-image: url(https://avatars0.githubusercontent.com/u/6514016?v&#x3D;4)"><span class="hidden">Julia Huntenburg's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="https://juhuntenburg.github.io/gsoc2017/author/juhuntenburg/">Julia Huntenburg</a></h4>
+
+                    <p>Read <a href="https://juhuntenburg.github.io/gsoc2017/author/juhuntenburg/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Leipzig/Berlin, Germany</span>
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Distributing&amp;url=https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="https://juhuntenburg.github.io/gsoc2017">Integrating CBS Tools in the Nipy community</a> &copy; 2017</section>
+            <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();
+      </script>
+       
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <script type="text/javascript" src="//juhuntenburg.github.io/gsoc2017/themes/casper/assets/js/jquery.fitvids.js?v=1503492880544"></script>
+    <script type="text/javascript" src="//juhuntenburg.github.io/gsoc2017/themes/casper/assets/js/index.js?v=1503492880544"></script>
+
+</body>
+</html>

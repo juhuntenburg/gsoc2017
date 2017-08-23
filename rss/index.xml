@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 23 Aug 2017 12:45:29 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Travis CI]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 23 Aug 2017 12:54:40 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Travis CI]]></title><description><![CDATA[<div class="paragraph">
 <p>This week I set up continuous integration (CI) with <a href="https://travis-ci.org/">travis</a> for our project. I knew very little about travis&#8201;&#8212;&#8201;or CI&#8201;&#8212;&#8201;before, and had thought of it more in terms of running automatic tests. And we don&#8217;t even have unit tests yet.</p>
 </div>
 <div class="paragraph">
@@ -185,7 +185,37 @@ pip install pillow</pre>
 </div>
 <div class="paragraph">
 <p>As usual, I left brainhack tired but thrilled: about this awesome, inspiring community, and about having learned more in a few days than in a regular month or more back at university. If you are into neuroscience and coding, you should definitely check out the next brainhack in your region, or just organize one yourself.</p>
-</div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/07/16/Brainhack-Vancouver.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/07/16/Brainhack-Vancouver.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Sun, 16 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[To Docker or not to Docker]]></title><description><![CDATA[<div class="paragraph">
+</div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/07/16/Brainhack-Vancouver.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/07/16/Brainhack-Vancouver.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Sun, 16 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Distributing]]></title><description><![CDATA[<div class="paragraph">
+<p>Recently I tried to learn about <a href="https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/">distributing Python packages through PyPI</a>. While that seems more or less straightforward for pure Python projects, the story gets more complicated for our case, where extensions in another language need to be compiled in a platform-dependent manner. I ended up with some insights, but also a lot of remaining confusion:</p>
+</div>
+<div class="olist arabic">
+<div class="title">Generally there are two options:</div>
+<ol class="arabic">
+<li>
+<p>compiling the extensions during installation</p>
+</li>
+<li>
+<p>distributing pre-compiled binaries</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For 1. I found very little information on how to actually implement that. One option seems to <a href="https://docs.python.org/2/extending/building.html">build the extensions using distutils</a> in the setup.py script, although I am not sure if that requires the user to install from source, instead of installing using pip. One <a href="https://stackoverflow.com/questions/31380578/how-to-avoid-building-c-library-with-my-python-package">post</a> mentions that they used <code>build_ext</code> with pip to build a C extension during installation, but I could just not find any information on how exactly that works.</p>
+</div>
+<div class="paragraph">
+<p>I found much more information on option 2. The preferred way to package binary extensions through are <a href="https://python-packaging-user-guide.readthedocs.io/tutorials/distributing-packages/#wheels">wheels</a>.
+&gt;A wheel is a built package that can be installed without needing to go through the build process. Installing wheels is substantially faster for the end user than installing from a source distribution.</p>
+</div>
+<div class="paragraph">
+<p>In our case we would need to create a Platform Wheel, which is a platform dependent wheel that contains compiled extensions. PyPI currently supports wheels for Windows and OS X but only a compatible <a href="https://www.python.org/dev/peps/pep-0513/">subset of linux distributions</a>. Wheels appear to be the preferred and more standardized way of packaging versus the older egg format (see this <a href="https://packaging.python.org/discussions/wheel-vs-egg/">discussion</a>) and are used e.g. to manage <a href="https://pypi.python.org/pypi/numpy">Numpy</a> distribution.</p>
+</div>
+<div class="paragraph">
+<div class="title">Conda</div>
+<p>Another option is to use conda to package our project. This is where I am still confused. Building a <a href="https://conda.io/docs/build_tutorials/pkgs.html">conda package from an existing PyPI project</a> seems straightforward. Those can apparently be build for one platfrom, converted for others and then uploaded to anaconda.org. But I am not sure if that is only true for Python packages, or for binary extensions too, and how it works in the latter case (do the extensions already have to be on PyPI?). There is also a tutorial how to build a <a href="https://conda.io/docs/build_tutorials/postgis.html">conda package from scratch for any language</a>, for which no PyPI project is required. But it is still a bit obscure to me how exactly that works, and what are the advantages over using PyPI with wheels. I found some thoughts on the latter question <a href="https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/">here under Myth#6</a></p>
+</div>
+<div class="paragraph">
+<p>Hopefully I can update with a better understanding soon.</p>
+</div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/06/16/Distributing.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Fri, 16 Jun 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[To Docker or not to Docker]]></title><description><![CDATA[<div class="paragraph">
 <p>Reaching out to the neuroimaging community regarding means of software distribution got me many helpful replies and I learned quite a bit about Docker and related tools along the way. My main take-aways:</p>
 </div>
 <div class="ulist">
