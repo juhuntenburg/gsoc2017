@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 23 Aug 2017 12:42:47 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Documentation Part II]]></title><description><![CDATA[<div id="preamble">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 23 Aug 2017 12:45:29 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Travis CI]]></title><description><![CDATA[<div class="paragraph">
+<p>This week I set up continuous integration (CI) with <a href="https://travis-ci.org/">travis</a> for our project. I knew very little about travis&#8201;&#8212;&#8201;or CI&#8201;&#8212;&#8201;before, and had thought of it more in terms of running automatic tests. And we don&#8217;t even have unit tests yet.</p>
+</div>
+<div class="paragraph">
+<p>But it turns out travis also very useful for another reason: to automatically build the package&#8201;&#8212;&#8201;including compiling of Java classes, wrappers and all&#8201;&#8212;&#8201;and <a href="https://docs.travis-ci.com/user/deployment/pypi/">deploy it to PyPI</a>. With the build script from <a href="../../07/16/Brainhack-Vancouver.html">Brainhack Vancouver</a> and, as usual, lots of peeking into other packages, it was easier than I had thought to put together the <a href="https://github.com/nighres/nighres/blob/master/.travis.yml">travis.yml</a> script.</p>
+</div>
+<div class="paragraph">
+<p>We currently deploy to TestPyPI every time changes are pushed to master. But once Nighres is ready for the official release, it&#8217;s easy to switch to the real PyPI server and deploy only tagged releases.</p>
+</div>
+<div class="paragraph">
+<p>And when we have proper tests for the Python code, we can extend the travis script to run the tests against different versions of Python and the dependencies (Numpy and Nibabel), to ensure that changes to the existing code don&#8217;t break current functionality.</p>
+</div>
+<div class="paragraph">
+<p>With the current script, travis builds on Linux Ubuntu Trusty x86_64. It will be important to set up similar builds for other architectures and platforms, so that we can make the precompiled package available for more users. But one step after the other.</p>
+</div>
+<div class="paragraph">
+<p>For now, at the end of the second last week of GSoC, what could be more satisfying:</p>
+</div>
+<div id="build-passing" class="paragraph">
+<p><span class="image"><a class="image" href="https://travis-ci.org/nighres/nighres"><img src="https://travis-ci.org/nighres/nighres.svg?branch=master" alt="Build Status"></a></span></p>
+</div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/08/18/travis.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/08/18/travis.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Fri, 18 Aug 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Documentation Part II]]></title><description><![CDATA[<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>Through contributing to
