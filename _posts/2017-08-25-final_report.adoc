@@ -1,0 +1,55 @@
+= Final report
+:linkattrs:
+:published_at: 2017-08-25
+
+As it is the last week of Google Summer of Code 2017, this post is also my final project report, summarizing what I have worked, what I have learned, and what is left to do. GSoC has been an exceptional experience, rarely did I learn so many different new things in such a short time.
+
+== The result
+
+I developed *Nighres* -- a Python package for processing of high-resolution neuroimaging data. It provides a Python framework for the Java-based https://www.cbs.mpg.de/institute/software/cbs-tools[CBS High-Res Brain Processing Tools] to make those tools easier to install, use and extend.
+
+* https://github.com/nighres/nighres[Github repository] (147 commits, 290,325 ++ / 206,633 - - lines of code)
+* http://nighres.readthedocs.io/en/latest/[Documentation]
+* [PyPI package]
+* https://juhuntenburg.github.io/gsoc2017/[Development blog]
+
+== The experience
+
+It is cool to have built a software package. But even more satisfying to know that every little step to get there meant learning something I had never done before. Without a course, or a book, simply by doing it. I have written about most of the things I learned in previous posts so here an overview with links:
+
+.What I have learned
+
+* Making software design choices (blog: <<../../05/11/Wisdom-of-the-crowd.html#, Wisdom of the crowd>>, <<../../07/28/Nighres.html#, Nighres>>, <<../../08/11/Documentation.html#, Documentation>>)
+* Distribution (blog: <<../../06/03/To-Docker-or-not-to-Docker.html#, To Docker or not to Docker>>, <<../../06/16/Distributing.html#, Distributing>>)
+** Creating a PyPI package (blog: <<../../07/16/Brainhack-Vancouver.html#, Brainhack Vancouver>>, <<../../07/28/MANIFEST-in.html#, Manifesting>>, code: https://github.com/nighres/nighres/blob/master/setup.py[setup.py], https://github.com/nighres/nighres/blob/master/MANIFEST.in[MANIFEST.in])
+** Choosing a license (blog: <<../../07/26/Licenses.html#, Licenses>>, code: https://github.com/nighres/nighres/blob/master/LICENSE[LICENSE])
+** Building Java classes and wrappers (blog: <<../../07/16/Brainhack-Vancouver.html#, Brainhack Vancouver>>, code: https://github.com/nighres/nighres/blob/master/build.sh[build.sh] )
+** Continuous integration and deployment with Travis (blog: <<../../08/18/travis.html#, Travis CI>>, code: https://github.com/nighres/nighres/blob/master/.travis.yml[travis.yml])
+** Using docker and virtualbox for platform testing (blog: <<../../06/03/To-Docker-or-not-to-Docker.html#, To Docker or not to Docker>>)
+** Setting up a project and hosting example data on NITRC (online: https://www.nitrc.org/projects/nighres[NITRC project])
+* Documentation
+** Docstring styles (blog: <<../../07/18/A-documentation-for-documentation.html#, A documentation for documentation>>)
+** Creating a documentation with Sphinx and writing in ReStructuredText(blog: <<../../08/11/Documentation.html#sphinx, Sphinx>>, code:  https://github.com/nighres/nighres/tree/master/doc[doc])
+** Rendering illustrative examples with sphinx gallery (blog: <<../../08/11/Documentation.html#sphinx-gallery, Sphinx Gallery>>, code: https://github.com/nighres/nighres/blob/master/doc/conf.py#L47-L64[conf.py], https://github.com/nighres/nighres/tree/master/examples[examples])
+** Hosting documentation on readthedocs (blog: <<../../08/11/Documentation.html#read-the-docs, Read the docs>>, online: http://nighres.readthedocs.io/en/latest/[readthedocs])
+* Using Github for project management (blog: <<../../07/21/Github-project-management.html#, Github project management>>, online: https://github.com/nighres/nighres/projects/1[GSoC project])
+* Creating a blog using hubpress and writing in AsciiDoc (blog: <<../../07/27/A-real-blog#, Like a real blog>> , code: https://github.com/juhuntenburg/gsoc2017[gsoc2017])
+
+.What I got better at
+* Writing good Python code
+* Writing good docstrings
+* Using Git and Github
+* Using virtualenv for clean Python environments
+* Raising exceptions, errors, warnings in Python
+
+
+== The future
+Open issues can be found on the https://github.com/nighres/nighres/issues[Github issue tracker]. In my opinion, these are the most crucial next steps:
+
+* Writing unittests and testing against different versions of Python, Numpy and Nibabel on Travis
+* Supporting different platforms and architectures
+* Becoming part of the http://nipy.org/[Nipy] community of practice
+* Writing instructions for developers to make contributing easy
+* Wrapping more CBS Tools modules and writing the interfaces for them
+* Adding more examples
+* Providing a docker image
