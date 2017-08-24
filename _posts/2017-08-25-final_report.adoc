@@ -10,7 +10,7 @@ I developed *Nighres* -- a Python package for processing of high-resolution neur
 
 * https://github.com/nighres/nighres[Github repository] (147 commits, 290,325 ++ / 206,633 - - lines of code)
 * http://nighres.readthedocs.io/en/latest/[Documentation]
-* [PyPI package]
+* https://testpypi.python.org/pypi/nighres/0.2.8[PyPI package] (currently TestPyPI)
 * https://juhuntenburg.github.io/gsoc2017/[Development blog]
 
 == The experience
@@ -25,8 +25,8 @@ It is cool to have built a software package. But even more satisfying to know th
 ** Choosing a license (blog: <<../../07/26/Licenses.html#, Licenses>>, code: https://github.com/nighres/nighres/blob/master/LICENSE[LICENSE])
 ** Building Java classes and wrappers (blog: <<../../07/16/Brainhack-Vancouver.html#, Brainhack Vancouver>>, code: https://github.com/nighres/nighres/blob/master/build.sh[build.sh] )
 ** Continuous integration and deployment with Travis (blog: <<../../08/18/travis.html#, Travis CI>>, code: https://github.com/nighres/nighres/blob/master/.travis.yml[travis.yml])
-** Using docker and virtualbox for platform testing (blog: <<../../06/03/To-Docker-or-not-to-Docker.html#, To Docker or not to Docker>>)
-** Setting up a project and hosting example data on NITRC (online: https://www.nitrc.org/projects/nighres[NITRC project])
+** Using docker and virtualbox for platform testing (blog: <<../../06/03/To-Docker-or-not-to-Docker.html#, To Docker or not to Docker>>, code: https://github.com/nighres/nighres/blob/master/test_docker_trusty.sh[test_docker_trusty.sh])
+** Hosting example data on NITRC (online: https://www.nitrc.org/projects/nighres[NITRC project])
 * Documentation
 ** Docstring styles (blog: <<../../07/18/A-documentation-for-documentation.html#, A documentation for documentation>>)
 ** Creating a documentation with Sphinx and writing in ReStructuredText(blog: <<../../08/11/Documentation.html#sphinx, Sphinx>>, code:  https://github.com/nighres/nighres/tree/master/doc[doc])
