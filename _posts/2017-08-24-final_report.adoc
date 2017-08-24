@@ -1,6 +1,6 @@
 = Final report
 :linkattrs:
-:published_at: 2017-08-25
+:published_at: 2017-08-24
 
 As it is the last week of Google Summer of Code 2017, this post is also my final project report, summarizing what I have worked, what I have learned, and what is left to do. GSoC has been an exceptional experience, rarely did I learn so many different new things in such a short time.
 
