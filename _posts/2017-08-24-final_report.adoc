@@ -2,11 +2,11 @@
 :linkattrs:
 :published_at: 2017-08-24
 
-As it is the last week of Google Summer of Code, this post is also my final project report, summarizing what I have worked on, what I have learned, and what is left to do.
+As it is the last week of Google Summer of Code, this post is also my final project report, summarizing what I have worked on during the past 3 months, what I have learned, and what is left to do.
 
 == The result
 
-I worked on developing *Nighres* -- a Python package for processing of high-resolution neuroimaging data. It provides a Python framework for the Java-based https://www.cbs.mpg.de/institute/software/cbs-tools[CBS High-Res Brain Processing Tools] to make those tools easier to install, use and extend.
+I worked on developing *Nighres* -- a Python package for processing of high-resolution neuroimaging data. It provides a Python framework for the Java-based https://www.cbs.mpg.de/institute/software/cbs-tools[CBS High-Res Brain Processing Tools], aiming to make those tools easier to install, use and extend.
 
 * https://github.com/nighres/nighres[Github repository] (158 commits, 290,613+/206,840- lines of code)
 * http://nighres.readthedocs.io/en/latest/[Documentation]
@@ -15,11 +15,11 @@ I worked on developing *Nighres* -- a Python package for processing of high-reso
 
 == The experience
 
-It is cool to have built a software package. But even more satisfying to know that almost every little step to get there meant learning something I had never done before. Without a course, or a book, simply by doing it. I have written about most of the things I learned in previous posts, but here is an overview with links:
+It is cool to have built a software package. But even more satisfying to know that every step to get there meant learning something I had never done before. Without a course, or a book, simply by doing it. I have written about most of these steps in previous posts, but here is an overview with links:
 
 .*What I have learned*
 
-* Making software design choices (blog: <<../../05/11/Wisdom-of-the-crowd.html#, Wisdom of the crowd>>, <<../../07/28/Nighres.html#, Nighres>>, <<../../08/11/Documentation.html#, Documentation>>)
+* Making software design choices (blog: <<../../../_posts/2017-05-11-Wisdom-of-the-crowd.adoc#, Wisdom of the crowd>>, <<../../07/28/Nighres.html#, Nighres>>, <<../../08/11/Documentation.html#, Documentation>>)
 * Distribution (blog: <<../../06/03/To-Docker-or-not-to-Docker.html#, To Docker or not to Docker>>, <<../../06/16/Distributing.html#, Distributing>>)
 ** Creating a PyPI package (blog: <<../../07/16/Brainhack-Vancouver.html#, Brainhack Vancouver>>, <<../../07/28/MANIFEST-in.html#, Manifesting>>, code: https://github.com/nighres/nighres/blob/master/setup.py[setup.py], https://github.com/nighres/nighres/blob/master/MANIFEST.in[MANIFEST.in])
 ** Choosing a license (blog: <<../../07/26/Licenses.html#, Licenses>>, code: https://github.com/nighres/nighres/blob/master/LICENSE[LICENSE])
@@ -29,7 +29,7 @@ It is cool to have built a software package. But even more satisfying to know th
 ** Hosting example data on NITRC (online: https://www.nitrc.org/projects/nighres[NITRC project])
 * Documentation
 ** Docstring styles (blog: <<../../07/18/A-documentation-for-documentation.html#, A documentation for documentation>>)
-** Creating a documentation with Sphinx and writing in ReStructuredText(blog: <<../../08/11/Documentation.html#sphinx, Sphinx>>, code:  https://github.com/nighres/nighres/tree/master/doc[doc])
+** Creating a documentation with Sphinx and writing in ReStructuredText(blog: <<../../../_posts/2017-08-11-Documentation.adoc#sphinx, Sphinx>>, code:  https://github.com/nighres/nighres/tree/master/doc[doc])
 ** Rendering illustrative examples with sphinx gallery (blog: <<../../08/11/Documentation.html#sphinx-gallery, Sphinx Gallery>>, code: https://github.com/nighres/nighres/blob/master/doc/conf.py#L47-L64[conf.py], https://github.com/nighres/nighres/tree/master/examples[examples], online: http://nighres.readthedocs.io/en/latest/auto_examples/index.html[Nighres usage examples])
 ** Hosting documentation on readthedocs (blog: <<../../08/11/Documentation.html#read-the-docs, Read the docs>>, online: http://nighres.readthedocs.io/en/latest/[readthedocs])
 * Using Github for project management (blog: <<../../07/21/Github-project-management.html#, Github project management>>, online: https://github.com/nighres/nighres/projects/1[GSoC project])
