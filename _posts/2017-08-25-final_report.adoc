@@ -8,9 +8,9 @@ As it is the last week of Google Summer of Code, this post is also my final proj
 
 I worked on developing *Nighres* -- a Python package for processing of high-resolution neuroimaging data. It provides a Python framework for the Java-based https://www.cbs.mpg.de/institute/software/cbs-tools[CBS High-Res Brain Processing Tools], aiming to make those tools easier to install, use and extend.
 
-* https://github.com/nighres/nighres[Github repository] (158 commits, 290,613+/206,840- lines of code)
+* https://github.com/nighres/nighres[Github repository] (168 commits, 290,780+/207,108- lines of code)
 * http://nighres.readthedocs.io/en/latest/[Documentation]
-* https://testpypi.python.org/pypi/nighres/0.2.8[PyPI package] (currently TestPyPI)
+* https://pypi.python.org/pypi/nighres/1.0.0b3[PyPI package]
 * https://juhuntenburg.github.io/gsoc2017/[Development blog]
 
 == The experience
@@ -51,5 +51,5 @@ Open issues can be found on the https://github.com/nighres/nighres/issues[Github
 * Becoming part of the http://nipy.org/[Nipy] community of practice
 * Writing instructions for developers to make contributing easy
 * Wrapping more CBS Tools modules and writing the interfaces for them
-* Adding more examples
+* Adding more examples and make them executable on readthedocs (currently too big)
 * Providing a docker image
