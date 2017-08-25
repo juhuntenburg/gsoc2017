@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 25 Aug 2017 07:28:12 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Travis CI]]></title><description><![CDATA[<div class="paragraph">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Integrating CBS Tools in the Nipy community]]></title><description><![CDATA[My development blog for the Google Summer of Code 2017]]></description><link>https://juhuntenburg.github.io/gsoc2017</link><image><url>http://github.com/juhuntenburg/gsoc2017/blob/gh-pages/images/blog_cover.png</url><title>Integrating CBS Tools in the Nipy community</title><link>https://juhuntenburg.github.io/gsoc2017</link></image><generator>RSS for Node</generator><lastBuildDate>Fri, 25 Aug 2017 07:44:22 GMT</lastBuildDate><atom:link href="https://juhuntenburg.github.io/gsoc2017/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Final report]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>As it is the last week of Google Summer of Code, this post is also my final project report, summarizing what I have worked on during the past 3 months, what I have learned, and what is left to do.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_result">The result</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I worked on developing <strong>Nighres</strong>&#8201;&#8212;&#8201;a Python package for processing of high-resolution neuroimaging data. It provides a Python framework for the Java-based <a href="https://www.cbs.mpg.de/institute/software/cbs-tools">CBS High-Res Brain Processing Tools</a>, aiming to make those tools easier to install, use and extend.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/nighres/nighres">Github repository</a> (158 commits, 290,613+/206,840- lines of code)</p>
+</li>
+<li>
+<p><a href="http://nighres.readthedocs.io/en/latest/">Documentation</a></p>
+</li>
+<li>
+<p><a href="https://testpypi.python.org/pypi/nighres/0.2.8">PyPI package</a> (currently TestPyPI)</p>
+</li>
+<li>
+<p><a href="https://juhuntenburg.github.io/gsoc2017/">Development blog</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_experience">The experience</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is cool to have built a software package. But even more satisfying to know that every step to get there meant learning something I had never done before. Without a course, or a book, simply by doing it. I have written about most of these steps in previous posts, but here is an overview with links:</p>
+</div>
+<div class="ulist">
+<div class="title"><strong>What I have learned</strong></div>
+<ul>
+<li>
+<p>Making software design choices (blog: <a href="../../05/11/Wisdom-of-the-crowd.html">Wisdom of the crowd</a>, <a href="../../07/28/Nighres.html">Nighres</a>, <a href="../../08/11/Documentation.html">Documentation</a>)</p>
+</li>
+<li>
+<p>Distribution (blog: <a href="../../06/03/To-Docker-or-not-to-Docker.html">To Docker or not to Docker</a>, <a href="../../06/16/Distributing.html">Distributing</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating a PyPI package (blog: <a href="../../07/16/Brainhack-Vancouver.html">Brainhack Vancouver</a>, <a href="../../07/28/MANIFEST-in.html">Manifesting</a>, code: <a href="https://github.com/nighres/nighres/blob/master/setup.py">setup.py</a>, <a href="https://github.com/nighres/nighres/blob/master/MANIFEST.in">MANIFEST.in</a>)</p>
+</li>
+<li>
+<p>Choosing a license (blog: <a href="../../07/26/Licenses.html">Licenses</a>, code: <a href="https://github.com/nighres/nighres/blob/master/LICENSE">LICENSE</a>)</p>
+</li>
+<li>
+<p>Building Java classes and wrappers (blog: <a href="../../07/16/Brainhack-Vancouver.html">Brainhack Vancouver</a>, code: <a href="https://github.com/nighres/nighres/blob/master/build.sh">build.sh</a> )</p>
+</li>
+<li>
+<p>Continuous integration and deployment with Travis (blog: <a href="../../08/18/travis.html">Travis CI</a>, code: <a href="https://github.com/nighres/nighres/blob/master/.travis.yml">travis.yml</a>)</p>
+</li>
+<li>
+<p>Using docker and virtualbox for platform testing (blog: <a href="../../06/03/To-Docker-or-not-to-Docker.html">To Docker or not to Docker</a>, code: <a href="https://github.com/nighres/nighres/blob/master/test_docker_trusty.sh">test_docker_trusty.sh</a>)</p>
+</li>
+<li>
+<p>Hosting example data on NITRC (online: <a href="https://www.nitrc.org/projects/nighres">NITRC project</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Docstring styles (blog: <a href="../../07/18/A-documentation-for-documentation.html">A documentation for documentation</a>)</p>
+</li>
+<li>
+<p>Creating a documentation with Sphinx and writing in ReStructuredText(blog: <a href="../../08/11/Documentation.html#sphinx">Sphinx</a>, code:  <a href="https://github.com/nighres/nighres/tree/master/doc">doc</a>)</p>
+</li>
+<li>
+<p>Rendering illustrative examples with sphinx gallery (blog: <a href="../../08/11/Documentation.html#sphinx-gallery">Sphinx Gallery</a>, code: <a href="https://github.com/nighres/nighres/blob/master/doc/conf.py#L47-L64">conf.py</a>, <a href="https://github.com/nighres/nighres/tree/master/examples">examples</a>, online: <a href="http://nighres.readthedocs.io/en/latest/auto_examples/index.html">Nighres usage examples</a>)</p>
+</li>
+<li>
+<p>Hosting documentation on readthedocs (blog: <a href="../../08/11/Documentation.html#read-the-docs">Read the docs</a>, online: <a href="http://nighres.readthedocs.io/en/latest/">readthedocs</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Using Github for project management (blog: <a href="../../07/21/Github-project-management.html">Github project management</a>, online: <a href="https://github.com/nighres/nighres/projects/1">GSoC project</a>)</p>
+</li>
+<li>
+<p>Creating a blog using hubpress and writing in AsciiDoc (blog: <a href="../..html">Like a real blog</a> , code: <a href="https://github.com/juhuntenburg/gsoc2017">gsoc2017</a>)</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title"><strong>What I got better at</strong></div>
+<ul>
+<li>
+<p>Writing good Python code</p>
+</li>
+<li>
+<p>Writing good docstrings</p>
+</li>
+<li>
+<p>Using Git and Github</p>
+</li>
+<li>
+<p>Using virtualenv for clean Python environments</p>
+</li>
+<li>
+<p>Raising exceptions, errors, warnings in Python</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_future">The future</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Open issues can be found on the <a href="https://github.com/nighres/nighres/issues">Github issue tracker</a>. In my opinion, these are the most crucial next steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Writing unittests and testing against different versions of Python, Numpy and Nibabel on Travis</p>
+</li>
+<li>
+<p>Supporting different platforms and architectures</p>
+</li>
+<li>
+<p>Becoming part of the <a href="http://nipy.org/">Nipy</a> community of practice</p>
+</li>
+<li>
+<p>Writing instructions for developers to make contributing easy</p>
+</li>
+<li>
+<p>Wrapping more CBS Tools modules and writing the interfaces for them</p>
+</li>
+<li>
+<p>Adding more examples</p>
+</li>
+<li>
+<p>Providing a docker image</p>
+</li>
+</ul>
+</div>
+</div>
+</div>]]></description><link>https://juhuntenburg.github.io/gsoc2017/2017/08/25/final_report.html</link><guid isPermaLink="true">https://juhuntenburg.github.io/gsoc2017/2017/08/25/final_report.html</guid><dc:creator><![CDATA[Julia Huntenburg]]></dc:creator><pubDate>Fri, 25 Aug 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Travis CI]]></title><description><![CDATA[<div class="paragraph">
 <p>This week I set up continuous integration (CI) with <a href="https://travis-ci.org/">travis</a> for our project. I knew very little about travis&#8201;&#8212;&#8201;or CI&#8201;&#8212;&#8201;before, and had thought of it more in terms of running automatic tests. And we don&#8217;t even have unit tests yet.</p>
 </div>
 <div class="paragraph">
