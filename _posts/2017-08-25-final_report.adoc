@@ -10,7 +10,7 @@ I worked on developing *Nighres* -- a Python package for processing of high-reso
 
 * https://github.com/nighres/nighres[Github repository] (168 commits, 290,780+/207,108- lines of code)
 * http://nighres.readthedocs.io/en/latest/[Documentation]
-* https://pypi.python.org/pypi/nighres/1.0.0b3[PyPI package]
+* https://pypi.python.org/pypi/nighres[PyPI package]
 * https://juhuntenburg.github.io/gsoc2017/[Development blog]
 
 == The experience
